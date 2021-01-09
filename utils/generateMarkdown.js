@@ -85,7 +85,7 @@ function generateMarkdown(data) {
   const date = new Date();
   const year = date.getFullYear();
 
-  let desc = data.description;
+  let screenshot = data.screenshot;
   if(data.screenshot !== "") {
     if(data.screenshot.indexOf(",") !== -1) {
       let screenshotList = data.screenshot.split(",");
@@ -103,12 +103,13 @@ function generateMarkdown(data) {
 
   }
 
+
   return `
 # ${data.title}
 ${badge}
 
 ## Description
-${desc}
+${data.description}
 
 ## Table of Contents
 * [Installation](#Installation)
@@ -118,6 +119,7 @@ ${desc}
 * [Questions](#Questions)
 * [License](#License)
 
+${screenshot}
 ## Installing
 ${data.installation}
 

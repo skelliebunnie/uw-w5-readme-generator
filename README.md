@@ -4,12 +4,6 @@
 ## Description
 Generate a README file based on user input. Runs in the terminal and prompts the user for information, which is then populated to a README template.
 
-![Screenshot](screenshot02.png)
-
-[![Usage GIF](readme-generator-usage.gif)](https://drive.google.com/file/d/1L3fjmJZ_XDWcdUnJudcz3A4L6O1_HvZF/view)
-
-*Click the GIF above to view it full-size on Google Drive.*
-
 ## Table of Contents
 * [Installation](#Installation)
 * [Usage](#Usage)
@@ -17,6 +11,12 @@ Generate a README file based on user input. Runs in the terminal and prompts the
 * [Tests](#Tests)
 * [Questions](#Questions)
 * [License](#License)
+
+![Screenshot](screenshot02.png)
+
+[![Usage GIF](readme-generator-usage.gif)](https://drive.google.com/file/d/1L3fjmJZ_XDWcdUnJudcz3A4L6O1_HvZF/view)
+
+*Click the GIF above to view it full-size on Google Drive.*
 
 ## Installing
 - ```git clone``` this repo
