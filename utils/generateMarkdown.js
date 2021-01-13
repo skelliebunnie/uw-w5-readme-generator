@@ -89,14 +89,15 @@ function generateMarkdown(data) {
   if(data.screenshot !== "") {
     if(data.screenshot.indexOf(",") !== -1) {
       let screenshotList = data.screenshot.split(",");
+      screenshot = '';
 
       for(const picID in screenshotList) {
-        desc += `
+        screenshot += `
 
 ![Screenshot ${picID}](${screenshotList[picID]})`;
       }
     } else {
-      desc += `
+      screenshot += `
 
 ![Screenshot ${picID}](${data.screenshot})`;
     }

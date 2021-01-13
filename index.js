@@ -76,14 +76,22 @@ const questions = [
     type: "input",
     name: "screenshot",
     message: "Filename of screenshot:"
+  },
+  {
+  	type: "input",
+  	name: "directory",
+  	message: "Where should this be saved? (*path name* only): "
   }
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(path, data) {
   let markdown = generateMarkdown(data);
 
-  fs.writeFile(`${fileName}.md`, markdown.trim(), (err) =>
+  if(path !== "") { path += "\\"; }
+  path += "README.md";
+
+  fs.writeFile(path, markdown.trim(), (err) =>
     err ? console.error(err) : console.log('Success!')
   );
 }
@@ -92,7 +100,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions)
     .then(answers => {
-      writeToFile("README", answers);
+      writeToFile(answers.directory, answers);
     })
     .catch(error => {
       if(error.isTtyError) {
