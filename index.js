@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const generateMarkdown = require("./utils/generateMarkdown.js");
+const generateLicense = require("./utils/generateLicense.js");
 const inquirer = require("inquirer");
 const fs = require('fs');
 
@@ -48,6 +49,12 @@ const questions = [
     ]
   },
   {
+  	type: "confirm",
+  	name: "generateLicense",
+  	message: "Do you want to generate the license File? ",
+  	default: true
+  },
+  {
     type: "input",
     name: "description",
     message: "Project Description:"
@@ -87,13 +94,21 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(path, data) {
   let markdown = generateMarkdown(data);
+  let license = getLicense(data);
 
   if(path !== "") { path += "\\"; }
-  path += "README.md";
 
-  fs.writeFile(path, markdown.trim(), (err) =>
-    err ? console.error(err) : console.log('Success!')
+  // create markdown file
+  fs.writeFile(`${path}README.md`, markdown.trim(), (err) =>
+    err ? console.error(err) : console.log('Saved README.mdq')
   );
+
+  // create license file IF user said "yes"
+  if(data.generateLicense) {
+  	fs.writeFile(`${path}LICENSE`, markdown.trim(), (err) =>
+	    err ? console.error(err) : console.log('Saved LICENSE')
+	  );
+  }
 }
 
 // TODO: Create a function to initialize app
