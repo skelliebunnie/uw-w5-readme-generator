@@ -92,14 +92,12 @@ function generateMarkdown(data) {
       screenshot = '';
 
       for(const picID in screenshotList) {
-        screenshot += `
-
-![Screenshot ${picID}](${screenshotList[picID]})`;
+        screenshot += `\n\n![Screenshot ${picID}](${screenshotList[picID]})`;
       }
-    } else {
-      screenshot += `
 
-![Screenshot ${picID}](${data.screenshot})`;
+    } else {
+      screenshot += `\n\n![Screenshot](${data.screenshot})`;
+      
     }
 
   }
