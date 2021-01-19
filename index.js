@@ -94,7 +94,6 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(path, data) {
   let markdown = generateMarkdown(data);
-  let license = getLicense(data);
 
   if(path !== "") { path += "\\"; }
 
@@ -105,6 +104,8 @@ function writeToFile(path, data) {
 
   // create license file IF user said "yes"
   if(data.generateLicense) {
+  	let license = generateLicense(data);
+  	
   	fs.writeFile(`${path}LICENSE`, markdown.trim(), (err) =>
 	    err ? console.error(err) : console.log('Saved LICENSE')
 	  );

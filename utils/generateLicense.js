@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function getLicense(data, year) {
+function generateLicense(data, year) {
 	if(data.license === "MIT") {
 		return `MIT License
 
@@ -54,4 +54,4 @@ SOFTWARE.`
 	}
 }
 
-module.exports = getLicense;
+module.exports = generateLicense;
