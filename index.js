@@ -99,7 +99,7 @@ function writeToFile(path, data) {
 
   // create markdown file
   fs.writeFile(`${path}README.md`, markdown.trim(), (err) =>
-    err ? console.error(err) : console.log('Saved README.mdq')
+    err ? console.error(err) : console.log('Saved README.md')
   );
 
   // create license file IF user said "yes"
